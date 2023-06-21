@@ -230,8 +230,6 @@ header {
     font-weight: 600;
     font-size: 52.7426px;
     line-height: 64px;
-    display: flex;
-    align-items: center;
     color: #000000;
     margin-bottom: 33px;
   }
@@ -299,8 +297,6 @@ header {
         font-weight: 500;
         font-size: 16.5763px;
         line-height: 20px;
-        display: flex;
-        align-items: center;
         text-transform: uppercase;
         color: #000000;
         margin-bottom: 40px;
@@ -347,6 +343,7 @@ header {
           text-transform: uppercase;
           color: #000000;
           padding-top: 20px;
+          margin-bottom: 0;
         }
 
         p.amount {
@@ -515,12 +512,20 @@ footer {
       gap: 50px;
     }
   }
-  #calculator-section{
-    h3{
+
+  #calculator-section {
+    h3 {
       font-size: 35px;
     }
-    h5{
-      font-size:  15px !important;
+
+    h5 {
+      font-size: 15px !important;
+    }
+
+    .price {
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
     }
   }
 }
@@ -550,8 +555,24 @@ footer {
       font-size: 20px;
     }
   }
-  .calculator{
+
+  .calculator {
     width: 100% !important;
+
+    .price {}
+
+    .boxes {
+      flex-direction: column;
+      gap: 10px !important;
+
+      .box {
+        text-align: center;
+
+        h5 {
+          margin-bottom: 20px !important;
+        }
+      }
+    }
   }
 }
 
@@ -583,12 +604,23 @@ footer {
       line-height: 50px;
     }
   }
+
+  #calculator-section {
+    .calculator {
+      padding: 40px 20px;
+    }
+
+    h3 {
+      font-size: 30px;
+      text-align: center;
+    }
+  }
 }
 
 @media screen and (max-width:400px) {
 
-  #description{
-    h2{
+  #description {
+    h2 {
       font-size: 20px;
       margin-bottom: 20px;
     }

@@ -130,7 +130,7 @@ function App() {
           </div>
         </section>
 
-        {/* <section id="calculator-section">
+        <section id="calculator-section">
           <div className="container">
             <div className="calculator">
               <h3>Калькулятор воды</h3>
@@ -182,7 +182,7 @@ function App() {
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
         <section id="description">
           <div className="container">
