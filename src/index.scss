@@ -42,6 +42,7 @@ header {
     display: flex;
     justify-content: space-around;
     width: 50%;
+    margin: 0;
 
     .nav-link {
       font-family: "Montserrat";
@@ -415,6 +416,20 @@ header {
     color: #000000;
   }
 
+  button {
+    height: 60px;
+    padding: 15px 30px;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.40) 100%), #FFF;
+    box-shadow: 6px 10px 25px 0px rgba(0, 0, 0, 0.10);
+    margin-top: 40px;
+    display: none;
+  }
+
   .production-video {
     display: flex;
     justify-content: space-around;
@@ -559,8 +574,6 @@ footer {
   .calculator {
     width: 100% !important;
 
-    .price {}
-
     .boxes {
       flex-direction: column;
       gap: 10px !important;
@@ -595,6 +608,13 @@ footer {
 
     iframe {
       height: 350px;
+    }
+
+    .second-body {
+      display: none;
+    }
+    button{
+      display: block;
     }
   }
 

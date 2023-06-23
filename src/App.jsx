@@ -4,9 +4,14 @@ function App() {
   let [day, setDay] = useState(1);
   let [bottles, setBottles] = useState(1);
   let price = bottles * 100;
+  let [isActive, setIsActive] = useState(false);
 
   if (bottles >= 20) {
     price = bottles * 100 - bottles * 10;
+  }
+
+  function addSecondBody() {
+    setIsActive(true);
   }
 
   function decrease() {
@@ -195,7 +200,10 @@ function App() {
               отменное качество, порой предлагается простая вода из-под крана, о
               чём можно узнать из этикетки.
             </p>
-            <p>
+            <p
+              className="second-body"
+              style={{ display: isActive ? "block" : "" }}
+            >
               Наша компания предлагает действительно качественный товар и
               гарантирует своевременную доставку питьевой воды до дома или
               офиса. У нас вы можете также купить кулер для воды, что позволит
@@ -204,6 +212,14 @@ function App() {
               Такие приспособления незаменимы в офисе, а теперь используются и в
               квартирах.
             </p>
+            <div className="d-flex">
+              <button onClick={addSecondBody }
+              style={{ display: isActive ? "none" : "" }}
+              className="ms-auto me-auto">
+                Подробнее
+              </button>
+            </div>
+
             <h3>Наше производство</h3>
             <div className="production-video">
               <iframe
@@ -211,9 +227,9 @@ function App() {
                 height="450"
                 src="https://www.youtube.com/embed/WTh3Zc_r3s8"
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             </div>
           </div>
