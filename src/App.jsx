@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 
 function App() {
   let [day, setDay] = useState(1);
@@ -15,7 +14,16 @@ function App() {
   }
 
   function orderWater() {
-    toast("Your order was succesful", { type: "success" });
+    toast.success("Your order is accepted", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }
 
   function addSecondBody() {
@@ -322,6 +330,7 @@ function App() {
             </div>
           </div>
         </section>
+        <ToastContainer />
 
         <section id="description">
           <div className="container">
