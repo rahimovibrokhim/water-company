@@ -24,72 +24,72 @@ li {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgb(226, 242, 242);
-  margin-top: 50px;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 5px 0;
+
+  .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+  .navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  margin: 0;
+  }
+
+  .nav-link {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20.8531px;
+    line-height: 25px;
+    color: #50beff;
+
+    &:hover {
+      color: #085a91;
+      transition: .5s;
+    }
+  }
 }
 
 // header {
-//   background: rgba(255, 255, 255, 0.6);
-//   padding: 5px 0;
+//   nav {
+//     border-bottom: 1px solid aqua;
+//     padding: 8px 40px;
+//     background-color: black;
 
-//   .header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//   }
-
-//   .navbar {
-//     display: flex;
-//     justify-content: space-around;
-//     width: 50%;
-//     margin: 0;
-
-//     .nav-link {
-//       font-family: "Montserrat";
-//       font-style: normal;
-//       font-weight: 600;
-//       font-size: 20.8531px;
-//       line-height: 25px;
-//       color: #50beff;
-
+//     .logo,
+//     .nav-item {
 //       &:hover {
-//         color: #085a91;
-//         transition: .5s;
+//         color: rgb(23, 162, 184) !important;
+//         transition: .3s;
+//       }
+//     }
+
+//     .logout-btn:hover {
+//       color: red !important;
+//       background: none !important;
+//       transition: .2s;
+//     }
+
+
+//     .left {
+//       font-size: 2rem;
+//     }
+
+//     .right {
+//       li {
+//         font-size: 18px;
 //       }
 //     }
 //   }
 // }
-header {
-  nav {
-    border-bottom: 1px solid aqua;
-    padding: 8px 40px;
-    background-color: black;
-
-    .logo,
-    .nav-item {
-      &:hover {
-        color: rgb(23, 162, 184) !important;
-        transition: .3s;
-      }
-    }
-
-    .logout-btn:hover {
-      color: red !important;
-      background: none !important;
-      transition: .2s;
-    }
-
-
-    .left {
-      font-size: 2rem;
-    }
-
-    .right {
-      li {
-        font-size: 18px;
-      }
-    }
-  }
-}
 
 #hero {
   display: flex;
@@ -689,7 +689,6 @@ footer {
   }
 
   .hero {
-    h1 {}
 
     input {
       width: 100% !important;
@@ -699,6 +698,12 @@ footer {
 
     .submit-btn {
       display: none !important;
+    }
+  }
+
+  header nav {
+    .logo {
+      width: 10px !important;
     }
   }
 }

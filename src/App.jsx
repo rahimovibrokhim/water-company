@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   let [day, setDay] = useState(1);
@@ -11,6 +12,10 @@ function App() {
 
   if (bottles >= 20) {
     price = bottles * 100 - bottles * 10;
+  }
+
+  function orderWater() {
+    toast("Your order was succesful", { type: "success" });
   }
 
   function addSecondBody() {
@@ -30,80 +35,74 @@ function App() {
   return (
     <>
       <div className="head">
-        {/* <header>
-          <div className="header container">
-            <div className="left">
-              <a href="#">
-                <img src="logo.png" alt="" />
-              </a>
-            </div>
-            <ul className="navbar">
-              <li className="nav-item">
-                <a className="nav-link" href="#description">
-                  производство
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#calculator-section">
-                  вода
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  напитки
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#hero">
-                  доставка
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#footer">
-                  контакты
-                </a>
-              </li>
-            </ul>
-          </div>
-        </header> */}
-        {/* <header>
-          <nav className="navbar navbar-dark bg-dark fixed-top">
-            <div className="container-fluid px-5">
+        <div>
+          <header>
+            <div className="header container">
               <div className="left">
-                <a className="text-decoration-none logo text-light" to="/">
-                  &lt;/&gt;DevRakhimov
+                <a href="#">
+                  <img src="logo.png" alt="" />
                 </a>
               </div>
-              <div className="right d-none d-md-block">
+              <ul className="navbar d-none d-lg-flex">
+                <li className="nav-item">
+                  <a className="nav-link" href="#description">
+                    производство
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#calculator-section">
+                    вода
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#hero">
+                    доставка
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#footer">
+                    контакты
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </header>
+        </div>
+
+        {/* <header>
+          <nav className="navbar bg-light navbar-dark fixed-top">
+            <div className="container-fluid px-5">
+              <div className="left">
+                <a className="text-decoration-none logo" href="/">
+                  <img src="logo.png" alt="logo" />
+                </a>
+              </div>
+              <div className="right d-none d-lg-block">
                 <ul className="list-unstyled d-flex gap-5 m-0">
                   <li>
-                    <a
-                      className="text-decoration-none nav-item text-light"
-                      to="/profiles"
-                    >
-                      Developers
+                    <a className="nav-link" href="#description">
+                      производство
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="text-decoration-none nav-item text-light "
-                      to="/register"
-                    >
-                      Register
+                    <a className="nav-link" href="#calculator-section">
+                      вода
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="text-decoration-none nav-item text-light "
-                      to="/login"
-                    >
-                      Login
+                    <a className="nav-link" href="#hero">
+                      доставка
+                    </a>
+                  </li>
+                  <li>
+                    <a className="nav-link" href="#footer">
+                      контакты
                     </a>
                   </li>
                 </ul>
               </div>
               <button
-                className="navbar-toggler d-block d-md-none"
+                className="navbar-toggler bg-dark d-block d-lg-none"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar"
@@ -175,7 +174,6 @@ function App() {
                 заказать
               </button>
             </form>
-
           </div>
           <div className="right">
             <div className="contacts">
@@ -188,12 +186,11 @@ function App() {
                 <img src="whatsapp-icon.png" alt="WhatsApp" />
               </a>
               <a href="http://instagram.com/_u/{@vodaviatskaia}">
-              @vodaviatskaia
-              <img src="instagram-icon.png" alt="Instagram" />
+                @vodaviatskaia
+                <img src="instagram-icon.png" alt="Instagram" />
               </a>
             </div>
             <img className="big-bottles" src="big-bottles.png" alt="" />
-
           </div>
         </div>
       </div>
@@ -318,7 +315,9 @@ function App() {
                   <img src="credit-card.png" alt="image" />
                   <h6>{price}</h6>
                 </div>
-                <button type="submit">заказать</button>
+                <button onClick={orderWater} type="submit">
+                  заказать
+                </button>
               </div>
             </div>
           </div>
