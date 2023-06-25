@@ -1,17 +1,20 @@
 import { useState } from "react";
+import Carousel from "react-bootstrap/Carousel";
+import { toast } from "react-toastify";
 
 function App() {
   let [day, setDay] = useState(1);
   let [bottles, setBottles] = useState(1);
+  let [isInfo, setIsInfo] = useState(false);
+  let [place, setPlace] = useState(false);
   let price = bottles * 100;
-  let [isActive, setIsActive] = useState(false);
 
   if (bottles >= 20) {
     price = bottles * 100 - bottles * 10;
   }
 
   function addSecondBody() {
-    setIsActive(true);
+    setIsInfo(true);
   }
 
   function decrease() {
@@ -26,8 +29,8 @@ function App() {
   }
   return (
     <>
-      {/* <div className="head">
-        <header>
+      <div className="head">
+        {/* <header>
           <div className="header container">
             <div className="left">
               <a href="#">
@@ -62,7 +65,104 @@ function App() {
               </li>
             </ul>
           </div>
-        </header>
+        </header> */}
+        {/* <header>
+          <nav className="navbar navbar-dark bg-dark fixed-top">
+            <div className="container-fluid px-5">
+              <div className="left">
+                <a className="text-decoration-none logo text-light" to="/">
+                  &lt;/&gt;DevRakhimov
+                </a>
+              </div>
+              <div className="right d-none d-md-block">
+                <ul className="list-unstyled d-flex gap-5 m-0">
+                  <li>
+                    <a
+                      className="text-decoration-none nav-item text-light"
+                      to="/profiles"
+                    >
+                      Developers
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-decoration-none nav-item text-light "
+                      to="/register"
+                    >
+                      Register
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-decoration-none nav-item text-light "
+                      to="/login"
+                    >
+                      Login
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <button
+                className="navbar-toggler d-block d-md-none"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar"
+                aria-controls="offcanvasDarkNavbar"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div
+                className="offcanvas offcanvas-end text-bg-dark"
+                tabIndex="-1"
+                id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel"
+              >
+                <div className="offcanvas-header">
+                  <a
+                    className="text-decoration-none offcanvas-title display-6 fw-normal logo text-light"
+                    to="/"
+                  >
+                    &lt;/&gt;DevRahimov
+                  </a>
+                  <button
+                    type="button"
+                    className="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="offcanvas-body">
+                  <ul className="navbar-nav justify-content-end flex-grow-1 gap-3 pe-3">
+                    <li className="nav-item ms-3" style={{ fontSize: "20px" }}>
+                      <a
+                        className="text-decoration-none nav-item text-light"
+                        to="/profiles"
+                      >
+                        Developers
+                      </a>
+                    </li>
+                    <li className="nav-item ms-3" style={{ fontSize: "20px" }}>
+                      <a
+                        className="text-decoration-none nav-item text-light "
+                        to="/register"
+                      >
+                        Register
+                      </a>
+                    </li>
+                    <li className="nav-item ms-3" style={{ fontSize: "20px" }}>
+                      <a
+                        className="text-decoration-none nav-item text-light "
+                        to="/login"
+                      >
+                        Login
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header> */}
 
         <div id="hero" className="container hero">
           <div className="left">
@@ -75,6 +175,7 @@ function App() {
                 заказать
               </button>
             </form>
+
           </div>
           <div className="right">
             <div className="contacts">
@@ -87,14 +188,15 @@ function App() {
                 <img src="whatsapp-icon.png" alt="WhatsApp" />
               </a>
               <a href="http://instagram.com/_u/{@vodaviatskaia}">
-                @vodaviatskaia
-                <img src="instagram-icon.png" alt="Instagram" />
+              @vodaviatskaia
+              <img src="instagram-icon.png" alt="Instagram" />
               </a>
             </div>
             <img className="big-bottles" src="big-bottles.png" alt="" />
+
           </div>
         </div>
-      </div> */}
+      </div>
 
       <main>
         <section id="causes">
@@ -134,6 +236,39 @@ function App() {
             </div>
           </div>
         </section>
+        {/* <section id="causes">
+          <Carousel>
+            <Carousel.Item interval={7000}>
+              <div className="d-flex align-items-center flex-column">
+                <img src="cause-1-img.png" alt="Image One" />
+                <p className="text-danger">
+                  Содержит все необходимые <br /> макро и микроэлементы <br /> —
+                  кальций, магний, натрий и йод.
+                </p>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item interval={7000}>
+              <div className="d-flex align-items-center flex-column">
+                <img src="cause-2-img.png" alt="Image Two" />
+                <p className="text-danger">
+                  Более 10 лет на рынке питьевой воды. <br /> 2000 клиентов
+                  каждый день получают воду. <br /> 5000 клиентов обслуживаются
+                  в месяц.
+                </p>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item interval={7000}>
+              <div className="d-flex align-items-center flex-column">
+                <img src="cause-3-img.png" alt="Image One" />
+                <p className="text-danger mb-5">
+                  Доставка воды домой и в офис <br /> без задержек. Развозим
+                  воду по Казани. <br /> Возможны поставки в Иннополис,
+                  Зеленодольск
+                </p>
+              </div>
+            </Carousel.Item>
+          </Carousel>
+        </section> */}
 
         <section id="calculator-section">
           <div className="container">
@@ -196,13 +331,13 @@ function App() {
             </h2>
             <p>
               Выбрать компанию, предлагающую действительно хороший товар, не
-              так-то просто. <br /> Высокая цена далеко не всегда означает
-              отменное качество, порой предлагается простая вода из-под крана, о
-              чём можно узнать из этикетки.
+              так-то просто. Высокая цена далеко не всегда означает отменное
+              качество, порой предлагается простая вода из-под крана, о чём
+              можно узнать из этикетки.
             </p>
             <p
               className="second-body"
-              style={{ display: isActive ? "block" : "" }}
+              style={{ display: isInfo ? "block" : "" }}
             >
               Наша компания предлагает действительно качественный товар и
               гарантирует своевременную доставку питьевой воды до дома или
@@ -213,9 +348,11 @@ function App() {
               квартирах.
             </p>
             <div className="d-flex">
-              <button onClick={addSecondBody }
-              style={{ display: isActive ? "none" : "" }}
-              className="ms-auto me-auto">
+              <button
+                onClick={addSecondBody}
+                style={{ display: isInfo ? "none" : "" }}
+                className="ms-auto me-auto"
+              >
                 Подробнее
               </button>
             </div>
@@ -240,7 +377,9 @@ function App() {
         <div className="container">
           <div className="footer" id="footer">
             <div className="left">
-              <img src="footer-logo.png" alt="logo" />
+              <a href="#">
+                <img src="footer-logo.png" alt="logo" />
+              </a>
               <div className="info phone-number">
                 <img src="f-phone-logo.png" alt="phone-number" />
                 <a href="tel:+7 (8334) 3-83-66">+7 (8334) 3-83-66</a>
@@ -265,7 +404,7 @@ function App() {
             </div>
             <div className="right">
               <div className="youtube">
-                <a href="#">youtube.com</a>
+                <a href="https://www.youtube.com/@KingMachine">youtube.com</a>
                 <img src="youtube-icon.png" alt="youtube" />
               </div>
               <div className="vkontakte">
