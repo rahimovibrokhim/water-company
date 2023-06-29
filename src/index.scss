@@ -23,24 +23,24 @@ li {
   background-image: url('bg-hero.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgb(226, 242, 242);
+  // background-color: rgb(226, 242, 242);
 }
 
 header {
   background-color: rgba(255, 255, 255, 0.6);
-  padding: 5px 0;
+  // padding: 5px 0;
 
   .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
   }
 
   .navbar {
-  display: flex;
-  justify-content: space-around;
-  width: 50%;
-  margin: 0;
+  // display: flex;
+  // justify-content: space-around;
+  // width: 50%;
+  // margin: 0;
   }
 
   .nav-link {
@@ -588,6 +588,9 @@ footer {
       gap: 20px;
     }
   }
+  .navbar-nav{
+    margin: auto !important;
+  }
 }
 
 @media screen and (max-width:767px) {
@@ -700,12 +703,6 @@ footer {
       display: none !important;
     }
   }
-
-  header nav {
-    .logo {
-      width: 10px !important;
-    }
-  }
 }
 
 @media screen and (max-width:400px) {
@@ -719,5 +716,8 @@ footer {
 
   .hero h1 {
     font-size: 35px !important;
+  }
+  .logo{
+    width: 200px;
   }
 }

@@ -6,15 +6,28 @@ function App() {
   let [day, setDay] = useState(1);
   let [bottles, setBottles] = useState(1);
   let [isInfo, setIsInfo] = useState(false);
-  let [place, setPlace] = useState(false);
   let price = bottles * 100;
 
   if (bottles >= 20) {
     price = bottles * 100 - bottles * 10;
   }
 
+  function phoneSubmit(e) {
+    e.preventDefault();
+    toast.success("Мы свяжемся с вами в ближайшее время", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
+
   function orderWater() {
-    toast.success("Your order is accepted", {
+    toast.success("Ваш заказ принят", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -44,7 +57,7 @@ function App() {
     <>
       <div className="head">
         <div>
-          <header>
+          {/* <header>
             <div className="header container">
               <div className="left">
                 <a href="#">
@@ -74,110 +87,73 @@ function App() {
                 </li>
               </ul>
             </div>
-          </header>
-        </div>
-
-        {/* <header>
-          <nav className="navbar bg-light navbar-dark fixed-top">
-            <div className="container-fluid px-5">
-              <div className="left">
-                <a className="text-decoration-none logo" href="/">
-                  <img src="logo.png" alt="logo" />
-                </a>
-              </div>
-              <div className="right d-none d-lg-block">
-                <ul className="list-unstyled d-flex gap-5 m-0">
-                  <li>
-                    <a className="nav-link" href="#description">
-                      производство
-                    </a>
-                  </li>
-                  <li>
-                    <a className="nav-link" href="#calculator-section">
-                      вода
-                    </a>
-                  </li>
-                  <li>
-                    <a className="nav-link" href="#hero">
-                      доставка
-                    </a>
-                  </li>
-                  <li>
-                    <a className="nav-link" href="#footer">
-                      контакты
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <button
-                className="navbar-toggler bg-dark d-block d-lg-none"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasDarkNavbar"
-                aria-controls="offcanvasDarkNavbar"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div
-                className="offcanvas offcanvas-end text-bg-dark"
-                tabIndex="-1"
-                id="offcanvasDarkNavbar"
-                aria-labelledby="offcanvasDarkNavbarLabel"
-              >
-                <div className="offcanvas-header">
-                  <a
-                    className="text-decoration-none offcanvas-title display-6 fw-normal logo text-light"
-                    to="/"
-                  >
-                    &lt;/&gt;DevRahimov
+          </header> */}
+          <header>
+            {/* <div className="container"> */}
+              <nav class="navbar d-flex navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                    <img className="logo" src="logo.png" alt="" />
                   </a>
                   <button
+                    class="navbar-toggler"
                     type="button"
-                    className="btn-close btn-close-white"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                  ></button>
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div
+                    class="collapse d-flex navbar-collapse"
+                    id="navbarNavDropdown"
+                  >
+                    <ul
+                      class="navbar-nav text-center gap-4"
+                      style={{ marginLeft: "auto" }}
+                    >
+                      <li class="nav-item">
+                        <a className="nav-link" href="#description">
+                          производство
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a className="nav-link" href="#calculator-section">
+                          вода
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a className="nav-link" href="#hero">
+                          доставка
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a className="nav-link" href="#footer">
+                          контакты
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="offcanvas-body">
-                  <ul className="navbar-nav justify-content-end flex-grow-1 gap-3 pe-3">
-                    <li className="nav-item ms-3" style={{ fontSize: "20px" }}>
-                      <a
-                        className="text-decoration-none nav-item text-light"
-                        to="/profiles"
-                      >
-                        Developers
-                      </a>
-                    </li>
-                    <li className="nav-item ms-3" style={{ fontSize: "20px" }}>
-                      <a
-                        className="text-decoration-none nav-item text-light "
-                        to="/register"
-                      >
-                        Register
-                      </a>
-                    </li>
-                    <li className="nav-item ms-3" style={{ fontSize: "20px" }}>
-                      <a
-                        className="text-decoration-none nav-item text-light "
-                        to="/login"
-                      >
-                        Login
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </header> */}
+              </nav>
+            {/* </div> */}
+          </header>
+        </div>
 
         <div id="hero" className="container hero">
           <div className="left">
             <h1>
               артезианская вода <br /> с доставкой <br /> по казани{" "}
             </h1>
-            <form id="form">
-              <input type="tel" placeholder="ваш телефон" />
+            <form id="form" onSubmit={phoneSubmit}>
+              <input
+                type="tel"
+                placeholder="+7 (953) 696-83-66"
+                pattern="(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}"
+                required
+              />
               <button className="submit-btn" type="submit">
                 заказать
               </button>
@@ -186,14 +162,14 @@ function App() {
           <div className="right">
             <div className="contacts">
               <a href="tel:+7(8334)3-83-66">
-                +7 (8334) 3-83-66{" "}
+                +7 (8334) 3-83-66
                 <img src="telephone-icon.png" alt="Telephone" />
               </a>
-              <a href="tel:+998977002321">
-                +7 (953) 696-83-66{" "}
+              <a href="tel:+7(953)696-83-66">
+                +7 (953) 696-83-66
                 <img src="whatsapp-icon.png" alt="WhatsApp" />
               </a>
-              <a href="http://instagram.com/_u/{@vodaviatskaia}">
+              <a href="https://www.instagram.com/vodaviatskaia/">
                 @vodaviatskaia
                 <img src="instagram-icon.png" alt="Instagram" />
               </a>
@@ -398,15 +374,14 @@ function App() {
               </div>
               <div className="info location">
                 <img src="f-phone-logo.png" alt="location" />
-                <p>
+                <a href="https://goo.gl/maps/kyEjyEXhZRwasPAQ7">
                   г. Вятские Поляны <br /> ул. Чехова дом 34
-                </p>
+                </a>
               </div>
             </div>
-            <div className="center">
+            <div className="center gap-5">
               <a href="#description">Производство</a>
               <a href="#calculator-section">Вода</a>
-              <a href="#">Напитки</a>
               <a href="#hero">Доставка</a>
               <a href="#footer">Контакты</a>
             </div>
@@ -416,15 +391,15 @@ function App() {
                 <img src="youtube-icon.png" alt="youtube" />
               </div>
               <div className="vkontakte">
-                <a href="#">vk.com/vodakzn</a>
+                <a href="https://vk.com/id265358207">vk.com/vodakzn</a>
                 <img src="vkontakte-icon.png" alt="vkontakte" />
               </div>
               <div className="instagram">
-                <a href="#">@vodakzn</a>
-                <img src="f-instagram-icon.png" alt="istagram" />
+                <a href="https://www.instagram.com/vodaviatskaia/">@vodakzn</a>
+                <img src="f-instagram-icon.png" alt="instagram" />
               </div>
               <div className="gmail">
-                <a href="mail:voda@gmail.com">voda@gmail.com</a>
+                <a href="mail:google@gmail.com">voda@gmail.com</a>
                 <img src="gmail-icon.png" alt="gmail" />
               </div>
             </div>
