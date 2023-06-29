@@ -90,7 +90,7 @@ function App() {
           </header> */}
           <header>
             {/* <div className="container"> */}
-              <nav class="navbar d-flex navbar-expand-lg bg-body-tertiary">
+            {/* <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="#">
                     <img className="logo" src="logo.png" alt="" />
@@ -111,7 +111,7 @@ function App() {
                     id="navbarNavDropdown"
                   >
                     <ul
-                      class="navbar-nav text-center gap-4"
+                      class="navbar-nav text-center"
                       style={{ marginLeft: "auto" }}
                     >
                       <li class="nav-item">
@@ -137,7 +137,49 @@ function App() {
                     </ul>
                   </div>
                 </div>
-              </nav>
+              </nav> */}
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                  <img src="logo.png" className="logo" alt="logo" />
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav text-center gap-4" style={{marginLeft:'auto'}}>
+                    <li class="nav-item">
+                      <a className="nav-link" href="#description">
+                        производство
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a className="nav-link" href="#calculator-section">
+                        вода
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a className="nav-link" href="#hero">
+                        доставка
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a className="nav-link" href="#footer">
+                        контакты
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
             {/* </div> */}
           </header>
         </div>
