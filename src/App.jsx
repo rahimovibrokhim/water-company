@@ -56,147 +56,74 @@ function App() {
   return (
     <>
       <div className="head">
-        <div>
-          {/* <header>
-            <div className="header container">
-              <div className="left">
-                <a href="#">
-                  <img src="logo.png" alt="" />
-                </a>
-              </div>
-              <ul className="navbar d-none d-lg-flex">
-                <li className="nav-item">
-                  <a className="nav-link" href="#description">
-                    производство
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#calculator-section">
-                    вода
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#hero">
-                    доставка
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#footer">
-                    контакты
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </header> */}
-          <header>
-            {/* <div className="container"> */}
-            {/* <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">
-                    <img className="logo" src="logo.png" alt="" />
-                  </a>
-                  <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                  >
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div
-                    class="collapse d-flex navbar-collapse"
-                    id="navbarNavDropdown"
-                  >
-                    <ul
-                      class="navbar-nav text-center"
-                      style={{ marginLeft: "auto" }}
-                    >
-                      <li class="nav-item">
-                        <a className="nav-link" href="#description">
-                          производство
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a className="nav-link" href="#calculator-section">
-                          вода
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a className="nav-link" href="#hero">
-                          доставка
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a className="nav-link" href="#footer">
-                          контакты
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav> */}
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-              <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                  <img src="logo.png" className="logo" alt="logo" />
-                </a>
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarNavDropdown"
-                  aria-controls="navbarNavDropdown"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
+        <header>
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="logo.png" className="logo" alt="logo" />
+              </a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul
+                  class="navbar-nav text-center gap-4"
+                  style={{ marginLeft: "auto" }}
                 >
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav text-center gap-4" style={{marginLeft:'auto'}}>
-                    <li class="nav-item">
-                      <a className="nav-link" href="#description">
-                        производство
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a className="nav-link" href="#calculator-section">
-                        вода
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a className="nav-link" href="#hero">
-                        доставка
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a className="nav-link" href="#footer">
-                        контакты
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  <li class="nav-item">
+                    <a className="nav-link" href="#description">
+                      производство
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a className="nav-link" href="#calculator-section">
+                      вода
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a className="nav-link" href="#hero">
+                      доставка
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a className="nav-link" href="#footer">
+                      контакты
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </nav>
-            {/* </div> */}
-          </header>
-        </div>
+            </div>
+          </nav>
+        </header>
 
         <div id="hero" className="container hero">
           <div className="left">
             <h1>
               артезианская вода <br /> с доставкой <br /> по казани{" "}
             </h1>
-            <form id="form" onSubmit={phoneSubmit}>
+            <h2 className="d-none small-intro">
+              артезианская вода с доставкой по казани{" "}
+            </h2>
+            <form id="form">
               <input
                 type="tel"
                 placeholder="+7 (953) 696-83-66"
                 pattern="(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}"
                 required
               />
-              <button className="submit-btn" type="submit">
+              <button
+                className="submit-btn"
+                type="submit"
+                onClick={phoneSubmit}
+              >
                 заказать
               </button>
             </form>
@@ -259,39 +186,6 @@ function App() {
             </div>
           </div>
         </section>
-        {/* <section id="causes">
-          <Carousel>
-            <Carousel.Item interval={7000}>
-              <div className="d-flex align-items-center flex-column">
-                <img src="cause-1-img.png" alt="Image One" />
-                <p className="text-danger">
-                  Содержит все необходимые <br /> макро и микроэлементы <br /> —
-                  кальций, магний, натрий и йод.
-                </p>
-              </div>
-            </Carousel.Item>
-            <Carousel.Item interval={7000}>
-              <div className="d-flex align-items-center flex-column">
-                <img src="cause-2-img.png" alt="Image Two" />
-                <p className="text-danger">
-                  Более 10 лет на рынке питьевой воды. <br /> 2000 клиентов
-                  каждый день получают воду. <br /> 5000 клиентов обслуживаются
-                  в месяц.
-                </p>
-              </div>
-            </Carousel.Item>
-            <Carousel.Item interval={7000}>
-              <div className="d-flex align-items-center flex-column">
-                <img src="cause-3-img.png" alt="Image One" />
-                <p className="text-danger mb-5">
-                  Доставка воды домой и в офис <br /> без задержек. Развозим
-                  воду по Казани. <br /> Возможны поставки в Иннополис,
-                  Зеленодольск
-                </p>
-              </div>
-            </Carousel.Item>
-          </Carousel>
-        </section> */}
 
         <section id="calculator-section">
           <div className="container">
@@ -403,7 +297,7 @@ function App() {
         <div className="container">
           <div className="footer" id="footer">
             <div className="left">
-              <a href="#">
+              <a href="#" className="logo">
                 <img src="footer-logo.png" alt="logo" />
               </a>
               <div className="info phone-number">
@@ -441,7 +335,7 @@ function App() {
                 <img src="f-instagram-icon.png" alt="instagram" />
               </div>
               <div className="gmail">
-                <a href="mail:google@gmail.com">voda@gmail.com</a>
+                <a href="mailto:google@gmail.com">voda@gmail.com</a>
                 <img src="gmail-icon.png" alt="gmail" />
               </div>
             </div>

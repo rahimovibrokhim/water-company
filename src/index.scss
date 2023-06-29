@@ -20,7 +20,7 @@ li {
 }
 
 .head {
-  background-image: url('bg-hero.png');
+  background-image: url(../public/bg-hero.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgb(226, 242, 242);
@@ -28,19 +28,6 @@ li {
 
 header {
   background-color: rgba(255, 255, 255, 0.6);
-
-  .header {
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: center;
-  }
-
-  .navbar {
-  // display: flex;
-  // justify-content: space-around;
-  // width: 50%;
-  // margin: 0;
-  }
 
   .nav-link {
     font-family: "Montserrat";
@@ -56,39 +43,6 @@ header {
     }
   }
 }
-
-// header {
-//   nav {
-//     border-bottom: 1px solid aqua;
-//     padding: 8px 40px;
-//     background-color: black;
-
-//     .logo,
-//     .nav-item {
-//       &:hover {
-//         color: rgb(23, 162, 184) !important;
-//         transition: .3s;
-//       }
-//     }
-
-//     .logout-btn:hover {
-//       color: red !important;
-//       background: none !important;
-//       transition: .2s;
-//     }
-
-
-//     .left {
-//       font-size: 2rem;
-//     }
-
-//     .right {
-//       li {
-//         font-size: 18px;
-//       }
-//     }
-//   }
-// }
 
 #hero {
   display: flex;
@@ -119,7 +73,8 @@ header {
     }
   }
 
-  h1 {
+  h1,
+  .small-intro {
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 700;
@@ -587,7 +542,8 @@ footer {
       gap: 20px;
     }
   }
-  .navbar-nav{
+
+  .navbar-nav {
     margin: auto !important;
   }
 }
@@ -636,7 +592,9 @@ footer {
   }
 
   .hero {
-    h1 {
+
+    h1,
+    .small-intro {
       font-size: 40px !important;
     }
   }
@@ -691,15 +649,42 @@ footer {
   }
 
   .hero {
+    .left {
+      h1 {
+        display: none;
+      }
 
-    input {
-      width: 100% !important;
-      font-size: 20px !important;
-      padding: 10px 15px !important;
+      .small-intro {
+        display: block !important;
+      }
     }
 
-    .submit-btn {
-      display: none !important;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      input {
+        width: 100% !important;
+        font-size: 20px !important;
+        padding: 10px 15px !important;
+        display: block;
+      }
+
+      .submit-btn {
+        display: block;
+        margin: 0 !important;
+        font-size: 20px !important;
+        padding: 15px 30px !important;
+      }
+    }
+  }
+
+  footer {
+    padding: 60px 0 !important;
+
+    .logo {
+      display: none;
     }
   }
 }
@@ -713,10 +698,11 @@ footer {
     }
   }
 
-  .hero h1 {
-    font-size: 35px !important;
+  .hero .small-intro {
+    font-size: 27px !important;
   }
-  .logo{
+
+  .logo {
     width: 200px;
   }
 }
