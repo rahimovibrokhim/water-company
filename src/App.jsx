@@ -112,18 +112,14 @@ function App() {
             <h2 className="d-none small-intro">
               артезианская вода с доставкой по казани{" "}
             </h2>
-            <form id="form">
+            <form id="form" onSubmit={phoneSubmit}>
               <input
                 type="tel"
                 placeholder="+7 (953) 696-83-66"
                 pattern="(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}"
                 required
               />
-              <button
-                className="submit-btn"
-                type="submit"
-                onClick={phoneSubmit}
-              >
+              <button className="submit-btn" type="submit">
                 заказать
               </button>
             </form>
@@ -138,7 +134,10 @@ function App() {
                 +7 (953) 696-83-66
                 <img src="whatsapp-icon.png" alt="WhatsApp" />
               </a>
-              <a href="https://www.instagram.com/vodaviatskaia/">
+              <a
+                href="https://www.instagram.com/vodaviatskaia/"
+                target="_blank"
+              >
                 @vodaviatskaia
                 <img src="instagram-icon.png" alt="Instagram" />
               </a>
@@ -309,8 +308,8 @@ function App() {
                 <a href="tel:+7 (953) 696-83-66">+7 (953) 696-83-66</a>
               </div>
               <div className="info location">
-                <img src="f-phone-logo.png" alt="location" />
-                <a href="https://goo.gl/maps/kyEjyEXhZRwasPAQ7">
+                <img src="f-location-logo.png" alt="location" />
+                <a href="https://goo.gl/maps/kyEjyEXhZRwasPAQ7" target="_blank">
                   г. Вятские Поляны <br /> ул. Чехова дом 34
                 </a>
               </div>
@@ -323,19 +322,30 @@ function App() {
             </div>
             <div className="right">
               <div className="youtube">
-                <a href="https://www.youtube.com/@KingMachine">youtube.com</a>
+                <a href="https://www.youtube.com/@KingMachine" target="_blank">
+                  youtube.com
+                </a>
                 <img src="youtube-icon.png" alt="youtube" />
               </div>
               <div className="vkontakte">
-                <a href="https://vk.com/id265358207">vk.com/vodakzn</a>
+                <a href="https://vk.com/id265358207" target="_blank">
+                  vk.com/vodakzn
+                </a>
                 <img src="vkontakte-icon.png" alt="vkontakte" />
               </div>
               <div className="instagram">
-                <a href="https://www.instagram.com/vodaviatskaia/">@vodakzn</a>
+                <a
+                  href="https://www.instagram.com/vodaviatskaia/"
+                  target="_blank"
+                >
+                  @vodakzn
+                </a>
                 <img src="f-instagram-icon.png" alt="instagram" />
               </div>
               <div className="gmail">
-                <a href="mailto:google@gmail.com">voda@gmail.com</a>
+                <a href="mailto:google@gmail.com" target="_blank">
+                  voda@gmail.com
+                </a>
                 <img src="gmail-icon.png" alt="gmail" />
               </div>
             </div>
