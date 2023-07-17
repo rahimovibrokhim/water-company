@@ -11,6 +11,12 @@ html {
   scroll-behavior: smooth;
 }
 
+.containerr {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
 a {
   text-decoration: none;
 }
@@ -500,6 +506,13 @@ footer {
 }
 
 @media screen and (max-width:991px) {
+  .container {
+    margin: 0 50px;
+  }
+  .calculator{
+    width: 100% !important;
+  }
+
   footer {
     .center {
       display: none !important;
@@ -549,6 +562,10 @@ footer {
 }
 
 @media screen and (max-width:767px) {
+  .containerr {
+    padding: 0 40px;
+  }
+
   .footer {
     flex-direction: column;
     gap: 40px;
@@ -601,6 +618,10 @@ footer {
 }
 
 @media screen and (max-width:576px) {
+  .containerr {
+    padding: 0 20px;
+  }
+
   #description {
 
     h2,
@@ -690,6 +711,9 @@ footer {
 }
 
 @media screen and (max-width:400px) {
+  .containerr {
+    padding: 0 8px !important;
+  }
 
   #description {
     h2 {

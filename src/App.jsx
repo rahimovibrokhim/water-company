@@ -104,7 +104,7 @@ function App() {
           </nav>
         </header>
 
-        <div id="hero" className="container hero">
+        <div id="hero" className="containerr hero">
           <div className="left">
             <h1>
               артезианская вода <br /> с доставкой <br /> по казани{" "}
@@ -116,7 +116,7 @@ function App() {
               <input
                 type="tel"
                 placeholder="+7 (953) 696-83-66"
-                pattern="(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}"
+                // pattern="(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}"
                 required
               />
               <button className="submit-btn" type="submit">
@@ -149,7 +149,7 @@ function App() {
 
       <main>
         <section id="causes">
-          <div className="container">
+          <div className="containerr">
             <h2>Три причины</h2>
             <h2>заказать воду Вятскую</h2>
             <div className="boxes">
@@ -187,7 +187,7 @@ function App() {
         </section>
 
         <section id="calculator-section">
-          <div className="container">
+          <div className="containerr">
             <div className="calculator">
               <h3>Калькулятор воды</h3>
               <div className="boxes">
@@ -244,7 +244,7 @@ function App() {
         <ToastContainer />
 
         <section id="description">
-          <div className="container">
+          <div className="containerr">
             <h2>
               Вода вятская — ПИТЬЕВАЯ <br /> ВОДА ДЛЯ ДОМА И ОФИСА
             </h2>
@@ -293,7 +293,7 @@ function App() {
       </main>
 
       <footer>
-        <div className="container">
+        <div className="containerr">
           <div className="footer" id="footer">
             <div className="left">
               <a href="#" className="logo">
