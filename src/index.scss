@@ -25,15 +25,12 @@ li {
   list-style: none;
 }
 
-.head {
-  background-image: url(../public/bg-hero.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: rgb(226, 242, 242);
-}
-
 header {
   background-color: rgba(255, 255, 255, 0.6);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 
   .nav-link {
     font-family: "Montserrat";
@@ -51,10 +48,18 @@ header {
 }
 
 #hero {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 25px;
-  padding-bottom: 130px;
+  background-image: url(../public/bg-hero.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 125px 0;
+  background-color: rgb(226, 242, 242);
+
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+  }
+
 
   #form {
     display: flex;
@@ -84,11 +89,18 @@ header {
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 700;
-    font-size: 56.8px;
     line-height: 69px;
     text-transform: uppercase;
     color: #ffffff;
     margin-top: 158px;
+  }
+
+  h1 {
+    font-size: 56.8px;
+  }
+
+  .small-intro {
+    font-size: 30px;
   }
 
   input {
@@ -313,13 +325,10 @@ header {
           margin-bottom: 15px;
         }
 
-        &:hover {
-          background: #50BEFF;
-          border-radius: 9.20903px;
-          color: #FFFFFF;
-          border: 1px solid #50BEFF;
-
-        }
+      }
+      .option.chosen {
+        background-color: #50BEFF;
+        color: #FFFFFF;
       }
 
       .water-amount {
@@ -509,7 +518,8 @@ footer {
   .container {
     margin: 0 50px;
   }
-  .calculator{
+
+  .calculator {
     width: 100% !important;
   }
 
@@ -610,8 +620,7 @@ footer {
 
   .hero {
 
-    h1,
-    .small-intro {
+    h1 {
       font-size: 40px !important;
     }
   }
@@ -669,7 +678,7 @@ footer {
     }
   }
 
-  .hero {
+  #hero {
     .left {
       h1 {
         display: none;
@@ -722,9 +731,10 @@ footer {
     }
   }
 
-  .hero .small-intro {
-    font-size: 27px !important;
+  #causes {
+    padding-top: 80px;
   }
+
 
   .logo {
     width: 200px;

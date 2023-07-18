@@ -5,13 +5,17 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   let [day, setDay] = useState(1);
   let [bottles, setBottles] = useState(1);
-  let [isInfo, setIsInfo] = useState(false);
+  let [addInfo, setAddInfo] = useState(false);
+  let [toOffice, setToOffice] = useState(false);
+  let [toHome, setToHome] = useState(false);
+  let [withPreparation, setWithPrep] = useState(false);
+  let [withoutPreparation, setWithoutPrep] = useState(false);
+
   let price = bottles * 100;
 
-  if (bottles >= 20) {
-    price = bottles * 100 - bottles * 10;
-  }
+  if (bottles >= 20) price = bottles * 100 - bottles * 10;
 
+  // phone submit in hero section
   function phoneSubmit(e) {
     e.preventDefault();
     toast.success("Мы свяжемся с вами в ближайшее время", {
@@ -26,21 +30,82 @@ function App() {
     });
   }
 
-  function orderWater() {
-    toast.success("Ваш заказ принят", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+  // submittion of form in calculator section
+  function submitOrder(e) {
+    e.preventDefault();
+    // cheking selection of place to order
+    if (toHome == false && toOffice == false) {
+      toast.error("Выберите местоположение", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    // cheking selection of water type
+    } else if (withPreparation == false && withoutPreparation == false) {
+      toast.error("Выберите вид готовки", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else {
+      toast.success("Ваш заказ принят", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setDay(1);
+      setBottles(1);
+      setToHome(false);
+      setToOffice(false);
+      setWithPrep(false);
+      setWithoutPrep(false);
+    }
   }
 
+  function orderToOffice() {
+    if (toOffice == false) setToOffice(true);
+    else setToOffice(false);
+    if (toHome == true && toOffice == false) setToHome(false);
+  }
+
+  function orderToHome() {
+    if (toHome == false) setToHome(true);
+    else setToHome(false);
+    if (toOffice == true && toHome == false) setToOffice(false);
+  }
+
+  function waterPreparation() {
+    if (withPreparation == false) setWithPrep(true);
+    else setWithPrep(false);
+    if (withoutPreparation == true && withPreparation == false)
+      setWithoutPrep(false);
+  }
+
+  function waterNoPreparation() {
+    if (withoutPreparation == false) setWithoutPrep(true);
+    else setWithoutPrep(false);
+    if (withPreparation == true && withoutPreparation == false)
+      setWithPrep(false);
+  }
+
+  // additional info in description section
   function addSecondBody() {
-    setIsInfo(true);
+    setAddInfo(true);
   }
 
   function decrease() {
@@ -55,99 +120,98 @@ function App() {
   }
   return (
     <>
-      <div className="head">
-        <header>
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                <img src="logo.png" className="logo" alt="logo" />
-              </a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+      <header>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <div className="container-fluid">
+            <a className="navbar-brand" href="#">
+              <img src="logo.png" className="logo" alt="logo" />
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul
+                className="navbar-nav text-center gap-4"
+                style={{ marginLeft: "auto" }}
               >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul
-                  class="navbar-nav text-center gap-4"
-                  style={{ marginLeft: "auto" }}
-                >
-                  <li class="nav-item">
-                    <a className="nav-link" href="#description">
-                      производство
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a className="nav-link" href="#calculator-section">
-                      вода
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a className="nav-link" href="#hero">
-                      доставка
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a className="nav-link" href="#footer">
-                      контакты
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                <li className="nav-item">
+                  <a className="nav-link" href="#description">
+                    производство
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#calculator-section">
+                    вода
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#hero">
+                    доставка
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#footer">
+                    контакты
+                  </a>
+                </li>
+              </ul>
             </div>
-          </nav>
-        </header>
-
-        <div id="hero" className="containerr hero">
-          <div className="left">
-            <h1>
-              артезианская вода <br /> с доставкой <br /> по казани{" "}
-            </h1>
-            <h2 className="d-none small-intro">
-              артезианская вода с доставкой по казани{" "}
-            </h2>
-            <form id="form" onSubmit={phoneSubmit}>
-              <input
-                type="tel"
-                placeholder="+7 (953) 696-83-66"
-                // pattern="(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}"
-                required
-              />
-              <button className="submit-btn" type="submit">
-                заказать
-              </button>
-            </form>
           </div>
-          <div className="right">
-            <div className="contacts">
-              <a href="tel:+7(8334)3-83-66">
-                +7 (8334) 3-83-66
-                <img src="telephone-icon.png" alt="Telephone" />
-              </a>
-              <a href="tel:+7(953)696-83-66">
-                +7 (953) 696-83-66
-                <img src="whatsapp-icon.png" alt="WhatsApp" />
-              </a>
-              <a
-                href="https://www.instagram.com/vodaviatskaia/"
-                target="_blank"
-              >
-                @vodaviatskaia
-                <img src="instagram-icon.png" alt="Instagram" />
-              </a>
-            </div>
-            <img className="big-bottles" src="big-bottles.png" alt="" />
-          </div>
-        </div>
-      </div>
-
+        </nav>
+      </header>
       <main>
+        <section id="hero">
+          <div className="containerr hero">
+            <div className="left">
+              <h1>
+                артезианская вода <br /> с доставкой <br /> по казани{" "}
+              </h1>
+              <h2 className="d-none small-intro">
+                артезианская вода с доставкой по казани{" "}
+              </h2>
+              <form id="form" onSubmit={phoneSubmit}>
+                <input
+                  type="tel"
+                  placeholder="+7 (953) 696-83-66"
+                  // pattern="(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}"
+                  required
+                />
+                <button className="submit-btn" type="submit">
+                  заказать
+                </button>
+              </form>
+            </div>
+            <div className="right">
+              <div className="contacts">
+                <a href="tel:+7(8334)3-83-66">
+                  +7 (8334) 3-83-66
+                  <img src="telephone-icon.png" alt="Telephone" />
+                </a>
+                <a href="tel:+7(953)696-83-66">
+                  +7 (953) 696-83-66
+                  <img src="whatsapp-icon.png" alt="WhatsApp" />
+                </a>
+                <a
+                  href="https://www.instagram.com/vodaviatskaia/"
+                  target="_blank"
+                >
+                  @vodaviatskaia
+                  <img src="instagram-icon.png" alt="Instagram" />
+                </a>
+              </div>
+              <img className="big-bottles" src="big-bottles.png" alt="" />
+            </div>
+          </div>
+        </section>
+
         <section id="causes">
           <div className="containerr">
             <h2>Три причины</h2>
@@ -188,24 +252,45 @@ function App() {
 
         <section id="calculator-section">
           <div className="containerr">
-            <div className="calculator">
+            <form onSubmit={submitOrder} className="calculator">
               <h3>Калькулятор воды</h3>
               <div className="boxes">
                 <div className="box">
                   <h5>Мы заказываем воду</h5>
-                  <button className="option opt-1">в офис</button> <br />
-                  <button className="option opt-2">домой</button>
+                  <button
+                    type="button"
+                    onClick={orderToOffice}
+                    className={`option opt-1 ${toOffice ? "chosen" : ""}`}
+                  >
+                    в офис
+                  </button>
+                  <br />
+                  <button
+                    type="button"
+                    onClick={orderToHome}
+                    className={`option opt-2 ${toHome ? "chosen" : ""}`}
+                  >
+                    домой
+                  </button>
                 </div>
                 <hr />
                 <div className="box">
                   <div className="water-amount">
                     <h5>НАМ НУЖЕН ЗАПАС НА</h5>
-                    <div className="" style={{ display: "flex", gap: "20px" }}>
-                      <button className="decrease" onClick={decrease}>
+                    <div style={{ display: "flex", gap: "20px" }}>
+                      <button
+                        type="button"
+                        className="decrease"
+                        onClick={decrease}
+                      >
                         -
                       </button>
                       <p className="amount">{day}</p>
-                      <button className="increase" onClick={increase}>
+                      <button
+                        type="button"
+                        className="increase"
+                        onClick={increase}
+                      >
                         +
                       </button>
                     </div>
@@ -215,8 +300,25 @@ function App() {
                 <hr />
                 <div className="box">
                   <h5>готовка</h5>
-                  <button className="option opt-1">с готовкой</button> <br />
-                  <button className="option opt-2">без готовки</button>
+                  <button
+                    type="button"
+                    onClick={waterPreparation}
+                    className={`option opt-1 ${
+                      withPreparation ? "chosen" : ""
+                    }`}
+                  >
+                    с готовкой
+                  </button>{" "}
+                  <br />
+                  <button
+                    type="button"
+                    onClick={waterNoPreparation}
+                    className={`option opt-2 ${
+                      withoutPreparation ? "chosen" : ""
+                    }`}
+                  >
+                    без готовки
+                  </button>
                 </div>
               </div>
               <div className="price">
@@ -234,11 +336,9 @@ function App() {
                   <img src="credit-card.png" alt="image" />
                   <h6>{price}</h6>
                 </div>
-                <button onClick={orderWater} type="submit">
-                  заказать
-                </button>
+                <button type="submit">заказать</button>
               </div>
-            </div>
+            </form>
           </div>
         </section>
         <ToastContainer />
@@ -256,7 +356,7 @@ function App() {
             </p>
             <p
               className="second-body"
-              style={{ display: isInfo ? "block" : "" }}
+              style={{ display: addInfo ? "block" : "" }}
             >
               Наша компания предлагает действительно качественный товар и
               гарантирует своевременную доставку питьевой воды до дома или
@@ -269,7 +369,7 @@ function App() {
             <div className="d-flex">
               <button
                 onClick={addSecondBody}
-                style={{ display: isInfo ? "none" : "" }}
+                style={{ display: addInfo ? "none" : "" }}
                 className="ms-auto me-auto"
               >
                 Подробнее
