@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -10,15 +10,17 @@ function App() {
   let [toHome, setToHome] = useState(false);
   let [withPreparation, setWithPrep] = useState(false);
   let [withoutPreparation, setWithoutPrep] = useState(false);
+  let [modal, setModal] = useState(false);
+  let phoneNumber = useRef();
 
   let price = bottles * 100;
-
   if (bottles >= 20) price = bottles * 100 - bottles * 10;
 
   // phone submit in hero section
   function phoneSubmit(e) {
     e.preventDefault();
-    toast.success("Мы свяжемся с вами в ближайшее время", {
+    phoneNumber.current.value = "";
+    toast.success("Мы свяжемся через 3-5 минут", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -30,8 +32,8 @@ function App() {
     });
   }
 
-  // submittion of form in calculator section
-  function submitOrder(e) {
+  // confirmation of information in calculator section
+  function confirmOrder(e) {
     e.preventDefault();
     // cheking selection of place to order
     if (toHome == false && toOffice == false) {
@@ -45,7 +47,7 @@ function App() {
         progress: undefined,
         theme: "dark",
       });
-    // cheking selection of water type
+      // cheking selection of water type
     } else if (withPreparation == false && withoutPreparation == false) {
       toast.error("Выберите вид готовки", {
         position: "top-right",
@@ -58,16 +60,7 @@ function App() {
         theme: "dark",
       });
     } else {
-      toast.success("Ваш заказ принят", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      setModal(true);
       setDay(1);
       setBottles(1);
       setToHome(false);
@@ -76,7 +69,25 @@ function App() {
       setWithoutPrep(false);
     }
   }
+  // submition of order in calculator section
+  function submitOrder(e) {
+    e.preventDefault();
+    toast.success("Ваш заказ принят", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
+    setModal(false);
+    phoneNumber.current.value = "";
+  }
+
+  // seletions in calculator section
   function orderToOffice() {
     if (toOffice == false) setToOffice(true);
     else setToOffice(false);
@@ -102,6 +113,7 @@ function App() {
     if (withPreparation == true && withoutPreparation == false)
       setWithPrep(false);
   }
+  /////////////
 
   // additional info in description section
   function addSecondBody() {
@@ -179,10 +191,11 @@ function App() {
               </h2>
               <form id="form" onSubmit={phoneSubmit}>
                 <input
-                  type="tel"
+                  type="number"
                   placeholder="+7 (953) 696-83-66"
-                  // pattern="(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}"
+                  min={4}
                   required
+                  ref={phoneNumber}
                 />
                 <button className="submit-btn" type="submit">
                   заказать
@@ -252,7 +265,7 @@ function App() {
 
         <section id="calculator-section">
           <div className="containerr">
-            <form onSubmit={submitOrder} className="calculator">
+            <form onSubmit={confirmOrder} className="calculator">
               <h3>Калькулятор воды</h3>
               <div className="boxes">
                 <div className="box">
@@ -452,6 +465,37 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Modal */}
+      <div className={`order-modal ${modal ? "show" : ""}`}>
+        <div className="modal-content">
+          <div className="top-content d-flex justify-content-end">
+            <button
+              onClick={() => setModal(false)}
+              type="button"
+              className="closeModalBtn"
+            >
+              <img src="close-modal.png" alt="close-modal" />
+            </button>
+          </div>
+          <div className="modal-body">
+            <p>Укажите свой номер</p>
+            <form onSubmit={submitOrder}>
+              <input
+                type="number"
+                required
+                min={4}
+                id="orderNumber"
+                className="modal-number"
+                ref={phoneNumber}
+              />
+              <button className="submit-btn" type="submit">
+                заказать
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
