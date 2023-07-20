@@ -12,6 +12,7 @@ function App() {
   let [withoutPreparation, setWithoutPrep] = useState(false);
   let [modal, setModal] = useState(false);
   let phoneNumber = useRef();
+  let modalNumber = useRef();
 
   let price = bottles * 100;
   if (bottles >= 20) price = bottles * 100 - bottles * 10;
@@ -84,7 +85,7 @@ function App() {
     });
 
     setModal(false);
-    phoneNumber.current.value = "";
+    modalNumber.current.value = "";
   }
 
   // seletions in calculator section
@@ -130,6 +131,11 @@ function App() {
     else setDay(day + 1);
     setBottles(Math.ceil(day / 2));
   }
+
+  // close modal onclick window
+  window.onclick = function (e) {
+    if (e.target == document.querySelector(".order-modal")) setModal(close);
+  };
   return (
     <>
       <header>
@@ -183,9 +189,7 @@ function App() {
         <section id="hero">
           <div className="containerr hero">
             <div className="left">
-              <h1>
-                артезианская вода <br /> с доставкой <br /> по казани{" "}
-              </h1>
+              <h1>артезианская вода с доставкой по казани </h1>
               <h2 className="d-none small-intro">
                 артезианская вода с доставкой по казани{" "}
               </h2>
@@ -467,9 +471,12 @@ function App() {
       </footer>
 
       {/* Modal */}
-      <div className={`order-modal ${modal ? "show" : ""}`}>
+      <div
+        className={`order-modal ${modal ? "show" : ""}`}
+        // className="show order-modal"
+      >
         <div className="modal-content">
-          <div className="top-content d-flex justify-content-end">
+          <div className="modal-header d-flex justify-content-end">
             <button
               onClick={() => setModal(false)}
               type="button"
@@ -485,9 +492,8 @@ function App() {
                 type="number"
                 required
                 min={4}
-                id="orderNumber"
                 className="modal-number"
-                ref={phoneNumber}
+                ref={modalNumber}
               />
               <button className="submit-btn" type="submit">
                 заказать

@@ -43,16 +43,16 @@ li {
 
   .modal-content {
     background-color: #fefefe;
-    padding: 20px 30px;
+    padding: 10px 30px 40px;
     border: 1px solid #888;
-    max-width: 396px;
+    max-width: 456px;
     width: 95%;
-    min-height: 300px;
+    // min-height: 270px;
     position: relative;
     margin: auto;
     border-radius: 20px;
 
-    .top-content {
+    .modal-header {
       img {
         width: 20px;
         height: 20px;
@@ -75,9 +75,9 @@ li {
     .modal-body {
       p {
         font-size: 25px;
+        margin-top: 10px;
         font-family: Inter;
         text-align: center;
-        margin-top: 20px;
       }
 
       form {
