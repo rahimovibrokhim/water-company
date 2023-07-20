@@ -191,7 +191,7 @@ function App() {
             <div className="left">
               <h1>артезианская вода с доставкой по казани </h1>
               <h2 className="d-none small-intro">
-                артезианская вода с доставкой по казани{" "}
+                артезианская вода с доставкой по казани
               </h2>
               <form id="form" onSubmit={phoneSubmit}>
                 <input
@@ -224,7 +224,7 @@ function App() {
                   <img src="instagram-icon.png" alt="Instagram" />
                 </a>
               </div>
-              <img className="big-bottles" src="big-bottles.png" alt="" />
+              <img className="big-bottles" src="big-bottles.png" alt="image" />
             </div>
           </div>
         </section>
@@ -471,10 +471,7 @@ function App() {
       </footer>
 
       {/* Modal */}
-      <div
-        className={`order-modal ${modal ? "show" : ""}`}
-        // className="show order-modal"
-      >
+      <div className={`order-modal ${modal ? "show" : ""}`}>
         <div className="modal-content">
           <div className="modal-header d-flex justify-content-end">
             <button
