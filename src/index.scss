@@ -108,16 +108,16 @@ li {
       }
     }
   }
-
 }
 
 header {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgb(248, 249, 250);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
   box-shadow: 0 0 80px #3287BF;
+  padding: 0 40px;
 
   .nav-link {
     font-family: "Montserrat";
@@ -131,6 +131,10 @@ header {
       color: #085a91;
       transition: .5s;
     }
+  }
+
+  .navbar {
+    transition: .5s;
   }
 }
 
@@ -221,6 +225,10 @@ header {
     align-items: end;
     gap: 10px;
 
+    @media screen and (max-width:1150px) {
+      display: none;
+    }
+
     a {
       width: 310px;
       display: flex;
@@ -241,6 +249,10 @@ header {
 
   .big-bottles {
     margin-top: -20px;
+
+    @media screen and (max-width:1150px) {
+      display: none;
+    }
   }
 }
 
@@ -296,19 +308,20 @@ header {
 }
 
 #calculator-section {
+  box-sizing: border-box !important;
   display: flex;
   justify-content: space-around;
   padding: 80px 0;
   background: linear-gradient(90deg, rgba(70, 126, 171, 1) 35%, rgba(112, 180, 255, 1) 78%);
 
-  .container {
+  .containerr {
     display: flex !important;
   }
 
   .calculator {
     margin: 0 auto;
     background-color: #fff;
-    width: 950px;
+    width: 850px;
     padding: 60px 70px 80px 50px;
     backdrop-filter: blur(64.8613px);
     border-radius: 26.8531px;
@@ -588,6 +601,10 @@ footer {
 }
 
 @media screen and (max-width:1100px) {
+  header {
+    padding: 0;
+  }
+
   .hero {
     h1 {
       font-size: 50px !important;
@@ -600,8 +617,8 @@ footer {
 }
 
 @media screen and (max-width:991px) {
-  .container {
-    margin: 0 50px;
+  .containerr {
+    padding: 0 50px;
   }
 
   .calculator {
@@ -819,7 +836,6 @@ footer {
   #causes {
     padding-top: 80px;
   }
-
 
   .logo {
     width: 200px;

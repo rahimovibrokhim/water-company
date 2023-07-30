@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   let [day, setDay] = useState(1);
@@ -114,7 +116,6 @@ function App() {
     if (withPreparation == true && withoutPreparation == false)
       setWithPrep(false);
   }
-  /////////////
 
   // additional info in description section
   function addSecondBody() {
@@ -134,57 +135,12 @@ function App() {
 
   // close modal onclick window
   window.onclick = function (e) {
-    if (e.target == document.querySelector(".order-modal")) setModal(close);
+    if (e.target == document.querySelector(".order-modal")) setModal(false);
   };
   return (
     <>
-      <header>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              <img src="logo.png" className="logo" alt="logo" />
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul
-                className="navbar-nav text-center gap-4"
-                style={{ marginLeft: "auto" }}
-              >
-                <li className="nav-item">
-                  <a className="nav-link" href="#description">
-                    производство
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#calculator-section">
-                    вода
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#hero">
-                    доставка
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#footer">
-                    контакты
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Header />
+
       <main>
         <section id="hero">
           <div className="containerr hero">
@@ -409,68 +365,8 @@ function App() {
         </section>
       </main>
 
-      <footer>
-        <div className="containerr">
-          <div className="footer" id="footer">
-            <div className="left">
-              <a href="#" className="logo">
-                <img src="footer-logo.png" alt="logo" />
-              </a>
-              <div className="info phone-number">
-                <img src="f-phone-logo.png" alt="phone-number" />
-                <a href="tel:+7 (8334) 3-83-66">+7 (8334) 3-83-66</a>
-              </div>
-              <div className="info whatsapp-number">
-                <img src="f-whatsapp-logo.png" alt="whatsapp" />
-                <a href="tel:+7 (953) 696-83-66">+7 (953) 696-83-66</a>
-              </div>
-              <div className="info location">
-                <img src="f-location-logo.png" alt="location" />
-                <a href="https://goo.gl/maps/kyEjyEXhZRwasPAQ7" target="_blank">
-                  г. Вятские Поляны <br /> ул. Чехова дом 34
-                </a>
-              </div>
-            </div>
-            <div className="center gap-5">
-              <a href="#description">Производство</a>
-              <a href="#calculator-section">Вода</a>
-              <a href="#hero">Доставка</a>
-              <a href="#footer">Контакты</a>
-            </div>
-            <div className="right">
-              <div className="youtube">
-                <a href="https://www.youtube.com/@KingMachine" target="_blank">
-                  youtube.com
-                </a>
-                <img src="youtube-icon.png" alt="youtube" />
-              </div>
-              <div className="vkontakte">
-                <a href="https://vk.com/id265358207" target="_blank">
-                  vk.com/vodakzn
-                </a>
-                <img src="vkontakte-icon.png" alt="vkontakte" />
-              </div>
-              <div className="instagram">
-                <a
-                  href="https://www.instagram.com/vodaviatskaia/"
-                  target="_blank"
-                >
-                  @vodakzn
-                </a>
-                <img src="f-instagram-icon.png" alt="instagram" />
-              </div>
-              <div className="gmail">
-                <a href="mailto:google@gmail.com" target="_blank">
-                  voda@gmail.com
-                </a>
-                <img src="gmail-icon.png" alt="gmail" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
-      {/* Modal */}
       <div className={`order-modal ${modal ? "show" : ""}`}>
         <div className="modal-content">
           <div className="modal-header d-flex justify-content-end">
